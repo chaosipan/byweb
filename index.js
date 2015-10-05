@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     res.send('It\'s byweb.');
 });
 
-app.post('/git', hexo.gitPostHandler);
+app.post('/git/hexo', hexo.gitPostHandler);
 
 var server = app.listen(byweb.port, function () {
 
