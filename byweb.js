@@ -14,6 +14,8 @@ function gitPostHandler(req, res) {
         response  = 'Wrong request!',
         key = config.byweb.key;
 
+    console.log(signature);
+
     if(signature != '') {
         sha1 = signature.split('=')[1];
     }
