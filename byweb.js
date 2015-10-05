@@ -32,7 +32,7 @@ function gitPostHandler(req, res) {
 }
 
 function update_byweb() {
-    exec('npm install', Thenjs(function(code, output) {
+    exec('npm install', {silent:true}, Thenjs(function(code, output) {
         logHelper.logH('Exit code:'+ code);
         logHelper.logH('npm install output:\n' + output);
     }));
