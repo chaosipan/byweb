@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+app.get('/', function() {
+    res.send('It\'s byweb.');
+});
+
 app.post('/git', hexo.gitPostHandler);
 
 var server = app.listen(byweb.port, function () {
