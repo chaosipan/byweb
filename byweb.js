@@ -7,7 +7,7 @@ var crypto = require('crypto'),
     config = require('./config');
 
 function gitPostHandler(req, res) {
-    var signature = res.headers['x-hub-signature'] ? res.headers['x-hub-signature'] : '',
+    var signature = res.headers['X-Hub-Signature'] ? res.headers['x-hub-signature'] : '',
         sha1 = '',
         body = '',
         hash = '',
