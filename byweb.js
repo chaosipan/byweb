@@ -22,7 +22,12 @@ function gitPostHandler(req, res) {
 
     if(hash == sha1) {
         response = 'Going to renew byweb!'
-        git.pull(path);
+        git.pull(path).then(function() {
+            exec('npm install', function(code, output) {
+                logHelper.logH('Exit code:'+ code);
+                logHelper.logH('npm install output:\n' + output);
+            })
+        });
     }
     res.send(response)
 }
