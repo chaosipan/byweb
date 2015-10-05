@@ -8,7 +8,7 @@ function pull(pwd) {
     cd(pwd);
     exec('git pull', function(code, output) {
         logHelper.logH('Exit code:'+ code);
-        logHelper.logH('Git pull output:' + output);
+        logHelper.logH('Git pull output:\n' + output);
     });
 }
 
