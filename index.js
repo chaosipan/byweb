@@ -5,6 +5,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     hexo = require('./hexo'),
+    mbyweb = require('./byweb'),
     config = require('./config'),
     byweb = config.byweb;
 
@@ -18,6 +19,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/git/hexo', hexo.gitPostHandler);
+
+app.post('/git/byweb', mbyweb.gitPostHandler);
 
 var server = app.listen(byweb.port, function () {
 
