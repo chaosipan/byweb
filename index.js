@@ -7,6 +7,7 @@ var express = require('express'),
     hexo = require('./hexo'),
     byweb = require('./byweb'),
     config = require('./config'),
+    logHelper = require('./logHelper'),
     system = config.system;
 
 app.use(bodyParser.json() );       // to support JSON-encoded bodies
@@ -32,6 +33,5 @@ var server = app.listen(system.port, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('byweb app listening at http://%s:%s', host, port)
-
+    logHelper.logH('byweb app listening at http://' + host + ':' + port)
 });

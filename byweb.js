@@ -18,7 +18,6 @@ function gitPostHandler(req, res) {
         sha1 = signature.split('=')[1];
     }
     body = JSON.stringify(req.body);
-    //hash = crypto.createHmac('sha1', key).update(new Buffer(body, 'utf-8')).digest('hex');
     hash = tools.hmac('sha1', key, body, 'hex');
 
     if(hash == sha1) {

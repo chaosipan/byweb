@@ -1,13 +1,14 @@
 /**
  * Created by Sam on 2015/10/4 0004.
  */
+var logHelper = require('./logHelper');
 require('shelljs/global');
 
 function pull(pwd) {
     cd(pwd);
     exec('git pull', function(code, output) {
-        console.log('Exit code:', code);
-        console.log('Program output:', output);
+        logHelper.logH('Exit code:'+ code);
+        logHelper.logH('Git pull output:' + output);
     });
 }
 
