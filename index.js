@@ -18,6 +18,11 @@ app.get('/', function(req, res) {
     res.send('It\'s byweb.');
 });
 
+app.get('/test', function(req, res) {
+    console.log(req);
+    res.send('test function!');
+});
+
 app.post('/git/hexo', hexo.gitPostHandler);
 
 app.post('/git/byweb', mbyweb.gitPostHandler);

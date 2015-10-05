@@ -1,7 +1,6 @@
 /**
  * Created by Sam on 2015/10/5 0005.
  */
-
 var crypto = require('crypto'),
     git = require('./git');
     config = require('./config');
