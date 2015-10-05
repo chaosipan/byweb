@@ -17,7 +17,7 @@ function pull(pwd, tasksArray) {
     var ta = tasksArray ? tasksArray : new Array();
     console.log(tasksArray);
     cd(pwd);
-    exec('git pull', {silent:true}, pull_callback.series(ta));
+    exec('git pull', {silent:true}, pull_callback.then(function() {}));
 }
 
 module.exports = {
