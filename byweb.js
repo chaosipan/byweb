@@ -36,6 +36,11 @@ function update_byweb() {
     exec('npm install', {silent:true}, function(code, output) {
         logHelper.logH('Exit code:'+ code);
         logHelper.logH('npm install output:\n' + output);
+
+        exec('supervisorctl restart byweb', {silent:true}, function(code, output) {
+            logHelper.logH('Exit code:'+ code);
+            logHelper.logH('supervisorctl restart byweb:\n' + output);
+        });
     });
 }
 
