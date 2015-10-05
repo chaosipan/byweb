@@ -23,7 +23,7 @@ function gitPostHandler(req, res) {
 
     if(hash == sha1) {
         response = 'Going to renew hexo!';
-        console.log(exec('pwd', {silent:true}).output);
+        console.log('*' + exec('pwd', {silent:true}).output);
         git.pull(path);
     }
     res.send(response)
