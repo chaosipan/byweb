@@ -10,14 +10,14 @@ function pull_callback(code, output, tasksArray){
     logHelper.logH('Exit code:'+ code);
     logHelper.logH('git pull output:\n' + output);
 
-    Thenjs.series(tasksArray);
+    return Thenjs();
 }
 
 function pull(pwd, tasksArray) {
     var ta = tasksArray ? tasksArray : [];
 
     cd(pwd);
-    exec('git pull', pull_callback, ta);
+    exec('git pull', pull_callback.series(ta));
 }
 
 module.exports = {
