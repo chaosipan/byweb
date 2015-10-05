@@ -4,7 +4,10 @@
 var git = require('./git'),
     logHelper = require('./logHelper'),
     config = require('./config'),
+    Thenjs = require('thenjs'),
     tools = require('./tools');
+
+require('shelljs/global');
 
 function gitPostHandler(req, res) {
     var signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
@@ -23,14 +26,16 @@ function gitPostHandler(req, res) {
 
     if(hash == sha1) {
         response = 'Going to renew byweb!'
-        git.pull(path).then(function() {
-            exec('npm install', function(code, output) {
-                logHelper.logH('Exit code:'+ code);
-                logHelper.logH('npm install output:\n' + output);
-            })
-        });
+        git.pull(path, [update_byweb]);
     }
     res.send(response)
+}
+
+function update_byweb() {
+    exec('npm install', Thenjs(function(code, output) {
+        logHelper.logH('Exit code:'+ code);
+        logHelper.logH('git pull output:\n' + output);
+    }));
 }
 
 module.exports.gitPostHandler = gitPostHandler;

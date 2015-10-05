@@ -6,13 +6,21 @@ var logHelper = require('./logHelper'),
 
 require('shelljs/global');
 
-function pull(pwd) {
+function pull_callback(code, output){
+    logHelper.logH('Exit code:'+ code);
+    logHelper.logH('git pull output:\n' + output);
+}
+
+function pull(pwd, tasksArray) {
+    var ta = tasksArray ? tasksArray : [];
+
     cd(pwd);
-    return Thenjs(
-    exec('git pull', function(code, output) {
-        logHelper.logH('Exit code:'+ code);
-        logHelper.logH('git pull output:\n' + output);
+    exec('git pull', Thenjs(pull_callback).then(function() {
+        Thenjs.series(ta);
     }));
 }
 
-module.exports.pull = pull;
+module.exports = {
+    pull: pull,
+    pull_callback: pull_callback
+}
