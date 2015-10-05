@@ -5,6 +5,7 @@ require('shelljs/global');
 
 function pull(pwd) {
     cd(pwd);
+    console.log('*' + exec('pwd', {silent:true}).output);
     if (exec('git pull"').code !== 0) {
         echo('Error: Git pull failed');
     }else{
