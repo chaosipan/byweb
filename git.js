@@ -8,7 +8,7 @@ require('shelljs/global');
 
 function pull(pwd, tasksArray) {
     var ta = tasksArray ? tasksArray : [] ;
-    
+
     cd(pwd);
     exec('git pull', {silent:true}, pull_callback);
 
