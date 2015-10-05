@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-app.get('/', function() {
+app.get('/', function(req, res) {
     res.send('It\'s byweb.');
 });
 
