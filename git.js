@@ -5,7 +5,7 @@ require('shelljs/global');
 
 function pull(pwd) {
     cd(pwd);
-    exec('some_long_running_process', function(code, output) {
+    exec('git pull', function(code, output) {
         console.log('Exit code:', code);
         console.log('Program output:', output);
     });
