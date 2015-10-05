@@ -5,12 +5,10 @@ require('shelljs/global');
 
 function pull(pwd) {
     cd(pwd);
-    console.log('*' + exec('pwd', {silent:true}).output);
-    if (exec('git pull"').code !== 0) {
-        echo('Error: Git pull failed');
-    }else{
-        echo('Log: Git pull successed');
-    }
+    exec('some_long_running_process', function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
+    });
 }
 
 module.exports.pull = pull;
