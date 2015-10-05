@@ -10,7 +10,7 @@ function pull_callback(code, output){
     logHelper.logH('Exit code:'+ code);
     logHelper.logH('git pull output:\n' + output);
 
-    return Thenjs();
+    return Thenjs;
 }
 
 function pull(pwd, tasksArray) {
