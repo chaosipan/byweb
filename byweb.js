@@ -25,8 +25,10 @@ function gitPostHandler(req, res) {
     hash = tools.hmac('sha1', key, body, 'hex');
 
     if(hash == sha1) {
-        response = 'Going to renew byweb!'
-        git.pull(path, [update_byweb]);
+        response = 'Going to renew byweb!';
+        var func_arr = new Array();
+        func_arr.push(update_byweb);
+        git.pull(path, func_arr);
     }
     res.send(response)
 }
