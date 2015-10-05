@@ -4,7 +4,7 @@
 var crypto = require('crypto');
 
 function hmac(algorithm, key, text, encoding) {
-    var hmac = crypto.createHmac(algorithm, key);
+    var hmac = crypto.createHmac(new Buffer(algorithm), new Buffer(key));
 
     hmac.setEncoding(encoding);
     hmac.write(text);

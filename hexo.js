@@ -19,7 +19,7 @@ function gitPostHandler(req, res) {
     }
     body = JSON.stringify(req.body);
     //hash = crypto.createHmac('sha1', key).update(new Buffer(body, 'utf-8')).digest('hex');
-    hash = tools.hmac('sha1', key, new Buffer(body), 'hex');
+    hash = tools.hmac('sha1', key, body, 'hex');
 
     if(hash == sha1) {
         response = 'Going to renew hexo!'
