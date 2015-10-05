@@ -31,7 +31,7 @@ var server = app.listen(system.port, function () {
 
     var host = server.address().address;
     var port = server.address().port;
-    var test = 1;
+
     console.log('byweb app listening at http://%s:%s', host, port)
 
 });
