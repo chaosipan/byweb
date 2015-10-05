@@ -5,9 +5,9 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     hexo = require('./hexo'),
-    mbyweb = require('./byweb'),
+    byweb = require('./byweb'),
     config = require('./config'),
-    byweb = config.byweb;
+    system = config.system;
 
 app.use(bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -25,12 +25,12 @@ app.get('/test', function(req, res) {
 
 app.post('/git/hexo', hexo.gitPostHandler);
 
-app.post('/git/byweb', mbyweb.gitPostHandler);
+app.post('/git/byweb', byweb.gitPostHandler);
 
-var server = app.listen(byweb.port, function () {
+var server = app.listen(system.port, function () {
 
-    var host = server.address().address
-    var port = server.address().port
+    var host = server.address().address;
+    var port = server.address().port;
 
     console.log('byweb app listening at http://%s:%s', host, port)
 

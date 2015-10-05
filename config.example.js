@@ -3,12 +3,11 @@
  */
 
 module.exports = {
-    byweb: {
+    system: {
         port: 3000
     },
     hexo: {
         key: 'secret',
-        pull: 'git pull',
         path: '/path/to/hexo'
     }
 }
