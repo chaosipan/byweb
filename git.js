@@ -14,7 +14,7 @@ function pull_callback(code, output){
 }
 
 function pull(pwd, tasksArray) {
-    var ta = tasksArray ? tasksArray : [];
+    var ta = tasksArray ? tasksArray : new Array();
     console.log(typeof ta);
     cd(pwd);
     exec('git pull', {silent:true}, pull_callback.series(ta));
