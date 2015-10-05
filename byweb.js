@@ -2,6 +2,7 @@
  * Created by Sam on 2015/10/5 0005.
  */
 var git = require('./git'),
+    logHelper = require('./logHelper'),
     config = require('./config'),
     tools = require('./tools');
 
