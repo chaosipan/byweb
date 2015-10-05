@@ -14,9 +14,9 @@
   "author": "dalex",
   "license": "ISC",
   "dependencies": {
+    "raw-body": "^2.1.4",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "raw-body": "^2.1.4",
     "shelljs": "^0.5.3"
   }
 }
