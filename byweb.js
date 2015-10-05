@@ -14,12 +14,11 @@ function gitPostHandler(req, res) {
         response  = 'Wrong request!',
         key = config.byweb.key;
 
-    console.log(signature);
-
     if(signature != '') {
         sha1 = signature.split('=')[1];
     }
     body = JSON.stringify(req.body);
+    console.log(body);
     hash = crypto.createHmac('sha1', key).update(body).digest('hex');
 
     if(hash == sha1) {
