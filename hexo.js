@@ -15,6 +15,8 @@ function gitPostHandler(req, res) {
         response  = 'Wrong request!',
         key = config.hexo.key;
 
+    logHelper.logH('An hexo req.');
+
     if(signature != '') {
         sha1 = signature.split('=')[1];
     }
