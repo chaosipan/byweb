@@ -23,7 +23,7 @@ function gitPostHandler(req, res) {
 
     if(hash == sha1) {
         response = 'Going to renew hexo!';
-        var funcArray = new Array(update_byweb);
+        var funcArray = new Array(update_hexo);
         git.pull(path, funcArray);
     }
     res.send(response)
