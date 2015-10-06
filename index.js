@@ -24,9 +24,9 @@ app.get('/test', function(req, res) {
     res.send('test function!');
 });
 
-app.post(hexo.watch, hexo.gitPostHandler);
+app.post(config.hexo.watch, hexo.gitPostHandler);
 
-app.post(byweb.watch, byweb.gitPostHandler);
+app.post(config.byweb.watch, byweb.gitPostHandler);
 
 var server = app.listen(system.port, function () {
 
