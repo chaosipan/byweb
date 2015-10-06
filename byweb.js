@@ -39,7 +39,7 @@ function update_byweb() {
 
         exec('supervisorctl restart byweb', {silent:true}, function(code, output) {
             logHelper.logH('Exit code:'+ code);
-            logHelper.logH('supervisorctl restart byweb:\n' + output);
+            logHelper.logH('supervisorctl restart byweb output:\n' + output);
         });
     });
 }

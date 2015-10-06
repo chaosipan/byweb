@@ -23,9 +23,22 @@ function gitPostHandler(req, res) {
 
     if(hash == sha1) {
         response = 'Going to renew hexo!';
-        git.pull(path);
+        var funcArray = new Array(update_byweb);
+        git.pull(path, funcArray);
     }
     res.send(response)
+}
+
+function update_hexo() {
+    exec('npm install', {silent:true}, function(code, output) {
+        logHelper.logH('Exit code:'+ code);
+        logHelper.logH('npm install output:\n' + output);
+
+        exec('hexo generate', {silent:true}, function(code, output) {
+            logHelper.logH('Exit code:'+ code);
+            logHelper.logH('hexo generate output:\n' + output);
+        });
+    });
 }
 
 module.exports.gitPostHandler = gitPostHandler;
