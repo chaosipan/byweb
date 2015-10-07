@@ -3,14 +3,16 @@
  */
 var crypto = require('crypto');
 
-function hmac(algorithm, key, text, encoding) {
-    var hmac = crypto.createHmac(algorithm, key);
+function hmac(algorithm, key, text, input_encoding, output_encoding) {
+    var hmac = crypto.createHmac(algorithm, key),
+        sign = '';
 
-    hmac.setEncoding(encoding);
+    /*hmac.setEncoding(encoding);
     hmac.write(text);
-    hmac.end();
+    hmac.end();*/
+    sign = hmac.update(text, input_encoding).digest().toString(output_encoding);
 
-    return hmac.read();
+    return sign;
 };
 
 module.exports = {

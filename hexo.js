@@ -21,7 +21,7 @@ function gitPostHandler(req, res) {
         sha1 = signature.split('=')[1];
     }
     body = JSON.stringify(req.body);
-    hash = tools.hmac('sha1', key, body, 'hex');
+    hash = tools.hmac('sha1', key, body, 'utf8', 'hex');
 
     if(hash == sha1) {
         response = 'Going to renew hexo!';
