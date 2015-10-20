@@ -53,3 +53,5 @@ function generator(obj) {
         res.send(response)
     }
 }
+
+module.exports.generator = generator;

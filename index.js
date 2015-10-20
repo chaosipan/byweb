@@ -4,6 +4,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
+    github = require('./modules/github'),
     hexo = require('./hexo'),
     byweb = require('./byweb'),
     config = require('./config'),
@@ -24,9 +25,11 @@ app.get('/test', function(req, res) {
     res.send('test function!');
 });
 
-app.post(config.hexo.watch, hexo.gitPostHandler);
+//app.post(config.hexo.watch, hexo.gitPostHandler);
 
-app.post(config.byweb.watch, byweb.gitPostHandler);
+//app.post(config.byweb.watch, byweb.gitPostHandler);
+
+app = app_post_adapter(app, config);
 
 var server = app.listen(system.port, function () {
 
@@ -35,3 +38,17 @@ var server = app.listen(system.port, function () {
 
     logHelper.logH('byweb app listening at http://' + host + ':' + port)
 });
+
+function app_post_adapter(byweb, config) {
+    var app_list = config.apps;
+
+    for(var key in app_list) {
+        var app = app_list[key];
+        if(app.vc_type == 'git') {
+            if(app.vc_server == 'github') {
+                byweb.post(app.watch, github.generator(app));
+            }
+        }
+    }
+    return byweb;
+}
