@@ -11,8 +11,8 @@ function pull(pwd, func) {
     exec('git pull', {silent:true}, pull_callback);
 
     function pull_callback(code, output) {
-        logHelper.logH('Exit code:'+ code);
-        logHelper.logH('git pull output:\n' + output);
+        logHelper.logH('Exit code:', code);
+        logHelper.logH('git pull output:\n', output);
 
         func();
     }
@@ -23,8 +23,8 @@ function clone(pwd, url, func) {
     exec('git clone ' + url, {silent:true}, clone_callback);
 
     function clone_callback(code, output) {
-        logHelper.logH('Exit code:'+ code);
-        logHelper.logH('git clone output:\n' + output);
+        logHelper.logH('Exit code:', code);
+        logHelper.logH('git clone output:\n', output);
 
         func();
     }
@@ -38,7 +38,7 @@ function update(pwd, url, func) {
         if(test('-e', p)) {
             clone(p, url, func);
         }else {
-            logHelper.logH('path ' + p + ' doesn\'t exist.');
+            logHelper.logH('path %s doesn\'t exist.', p);
             logHelper.logH('please checkout the config file.');
         }
     }

@@ -18,8 +18,8 @@ function generator(obj) {
             var cmd = cmdArray.shift();
 
             exec(cmd, {silent:true}, function(code, output) {
-                logHelper.logH('Exit code:'+ code);
-                logHelper.logH(cmd + ' output:\n' + output);
+                logHelper.logH('Exit code:', code);
+                logHelper.logH('%s  output:\n%s', cmd, output);
 
                 update();
             });
@@ -39,7 +39,7 @@ function generator(obj) {
             response  = 'Wrong request!',
             key = app.key;
 
-        logHelper.logH('An ' + name + ' req.');
+        logHelper.logH('An %s req arrival.', name);
 
         if(signature != '') {
             sha1 = signature.split('=')[1];
