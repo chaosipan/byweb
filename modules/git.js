@@ -6,9 +6,7 @@ var logHelper = require('./logHelper'),
 
 require('shelljs/global');
 
-function pull(pwd, tasksArray) {
-    var ta = tasksArray ? tasksArray : [] ;
-
+function pull(pwd, func) {
     cd(pwd);
     exec('git pull', {silent:true}, pull_callback);
 
@@ -16,7 +14,7 @@ function pull(pwd, tasksArray) {
         logHelper.logH('Exit code:'+ code);
         logHelper.logH('git pull output:\n' + output);
 
-        Thenjs.series(ta);
+        func();
     }
 }
 

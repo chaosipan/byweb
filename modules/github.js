@@ -11,17 +11,17 @@ function generator(obj) {
         cmdArray = app.commands;
 
 
-    function update(cmdArray) {
+    function update() {
         var len = cmdArray.length;
 
         if(len > 0) {
             var cmd = cmdArray.shift();
-
+            console.log(cmd);
             exec(cmd, {silent:true}, function(code, output) {
                 logHelper.logH('Exit code:'+ code);
                 logHelper.logH(cmd + ' output:\n' + output);
 
-                update(cmdArray);
+                update();
             });
         }else{
             return;
@@ -48,9 +48,7 @@ function generator(obj) {
 
         if(hash == sha1) {
             response = 'Going to renew ' + name + '!';
-            git.pull(path, function() {
-                update(cmdArray);
-            });
+            git.pull(path, update);
         }
         res.send(response)
     }
