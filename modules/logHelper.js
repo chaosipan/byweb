@@ -10,7 +10,7 @@ module.exports = {
     errorH: errorH
 };
 
-function logBase(tag, msg) {
+function logBase() {
     var args = ['[%s %s] : ' + arguments[1], arguments[0], getServerTime()];
     for(var i in arguments) {
         if(i > 1) {
