@@ -18,7 +18,6 @@ function logBase() {
         }
     }
     console.log.apply(this, args);
-    console.log();
 }
 
 function logH() {
@@ -27,7 +26,6 @@ function logH() {
         args.push(arguments[i]);
     }
     logBase.apply(this, args);
-    logBase();
 }
 
 function errorH() {
@@ -36,7 +34,6 @@ function errorH() {
         args.push(arguments[i]);
     }
     logBase.apply(this, args);
-    logBase();
 }
 
 function getServerTime() {
