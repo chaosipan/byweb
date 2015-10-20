@@ -4,10 +4,20 @@
 
 module.exports = {
     system: {
-        port: 3000
+        port: 24372
     },
-    hexo: {
-        key: 'secret',
-        path: '/path/to/hexo'
-    }
-}
+    apps: [
+        {
+            name: 'app_name',
+            key: 'post_key',
+            vc_type: 'git',
+            vc_server: 'github',
+            vc_url: 'git repo url',
+            watch: '/git/byweb',
+            path: '/path/to/project',
+            commands: [
+                'other command after pull'
+            ]
+        }
+    ]
+};
