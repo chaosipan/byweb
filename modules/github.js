@@ -11,7 +11,7 @@ function generator(obj) {
         cmdArray = app.commands;
 
 
-    function update() {
+    function update(cmdArray) {
         var len = cmdArray.length;
 
         if(len > 0) {
@@ -48,7 +48,9 @@ function generator(obj) {
 
         if(hash == sha1) {
             response = 'Going to renew ' + name + '!';
-            git.pull(path, update);
+            git.pull(path, function() {
+                update(cmdArray);
+            });
         }
         res.send(response)
     }
