@@ -26,7 +26,7 @@ function logH() {
     for(var i in arguments) {
         args.push(arguments[i]);
     }
-    logBase.apply(args);
+    logBase.apply(this, args);
     logBase();
 }
 
@@ -35,7 +35,7 @@ function errorH() {
     for(var i in arguments) {
         args.push(arguments[i]);
     }
-    logBase.apply(args);
+    logBase.apply(this, args);
     logBase();
 }
 
