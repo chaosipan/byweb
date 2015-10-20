@@ -23,4 +23,4 @@ npm start
 
 或者
 
-使用supervivor配合`node index.js`运行程序
+使用supervisor配合`node index.js`运行程序
