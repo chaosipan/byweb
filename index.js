@@ -5,8 +5,6 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     github = require('./modules/github'),
-    hexo = require('./hexo'),
-    byweb = require('./byweb'),
     config = require('./config'),
     logHelper = require('./modules/logHelper'),
     system = config.system;
@@ -24,10 +22,6 @@ app.get('/test', function(req, res) {
     console.log(req);
     res.send('test function!');
 });
-
-//app.post(config.hexo.watch, hexo.gitPostHandler);
-
-//app.post(config.byweb.watch, byweb.gitPostHandler);
 
 app = app_post_adapter(app, config);
 

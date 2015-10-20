@@ -16,7 +16,7 @@ function generator(obj) {
 
         if(len > 0) {
             var cmd = cmdArray.shift();
-            console.log(cmd);
+
             exec(cmd, {silent:true}, function(code, output) {
                 logHelper.logH('Exit code:'+ code);
                 logHelper.logH(cmd + ' output:\n' + output);
