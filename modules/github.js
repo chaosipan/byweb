@@ -33,6 +33,7 @@ function generator(obj) {
             sha1 = '',
             body = '',
             hash = '',
+            url = app.vc_url,
             name = app.name,
             path = app.path,
             response  = 'Wrong request!',
@@ -48,7 +49,7 @@ function generator(obj) {
 
         if(hash == sha1) {
             response = 'Going to renew ' + name + '!';
-            git.pull(path, update);
+            git.update(path, url, update);
         }
         res.send(response)
     }
