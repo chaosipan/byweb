@@ -1,11 +1,11 @@
 /**
  * Created by Sam on 2015/10/5 0005.
  */
-var git = require('./git'),
-    logHelper = require('./logHelper'),
+var git = require('./modules/git'),
+    logHelper = require('./modules/logHelper'),
     config = require('./config'),
     Thenjs = require('thenjs'),
-    tools = require('./tools');
+    tools = require('./modules/tools');
 
 require('shelljs/global');
 

@@ -7,7 +7,7 @@ var express = require('express'),
     hexo = require('./hexo'),
     byweb = require('./byweb'),
     config = require('./config'),
-    logHelper = require('./logHelper'),
+    logHelper = require('./modules/logHelper'),
     system = config.system;
 
 app.use(bodyParser.json() );       // to support JSON-encoded bodies

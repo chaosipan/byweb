@@ -1,14 +1,14 @@
 {
   "name": "byweb",
   "version": "0.0.5",
-  "description": "bypath for web app",
+  "description": "byweb for web app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "keywords": [
-    "bypath",
+    "byweb",
     "system"
   ],
   "author": "dalex",

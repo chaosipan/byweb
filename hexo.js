@@ -1,10 +1,10 @@
 /**
  * Created by Sam on 2015/10/4 0004.
  */
-var git = require('./git'),
+var git = require('./modules/git'),
     config = require('./config'),
-    logHelper = require('./logHelper'),
-    tools = require('./tools');
+    logHelper = require('./modules/logHelper'),
+    tools = require('./modules/tools');
 
 function gitPostHandler(req, res) {
     var signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
