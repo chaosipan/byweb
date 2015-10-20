@@ -1,6 +1,6 @@
 {
   "name": "byweb",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "byweb for web app",
   "main": "index.js",
   "scripts": {

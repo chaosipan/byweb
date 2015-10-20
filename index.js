@@ -33,6 +33,7 @@ var server = app.listen(system.port, function () {
     logHelper.logH('byweb app listening at http://' + host + ':' + port)
 });
 
+//根据配置文件生成监听器
 function app_post_adapter(byweb, config) {
     var app_list = config.apps;
 
