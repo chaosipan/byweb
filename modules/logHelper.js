@@ -11,7 +11,7 @@ module.exports = {
 };
 
 function logBase(tag, msg) {
-    var args = ['[%s %s] : ' + msg, tag, getServerTime()];
+    var args = ['[%s %s] : ' + arguments[1], arguments[0], getServerTime()];
     for(var i in arguments) {
         if(i > 1) {
             args.push(arguments[i]);
@@ -21,12 +21,22 @@ function logBase(tag, msg) {
     console.log();
 }
 
-function logH(msg) {
-    logBase('LOG', msg);
+function logH() {
+    var args = ['LOG'];
+    for(var i in arguments) {
+        args.push(arguments[i]);
+    }
+    logBase.apply(args);
+    logBase();
 }
 
-function errorH(msg) {
-    logBase('ERROR', msg);
+function errorH() {
+    var args = ['ERROR'];
+    for(var i in arguments) {
+        args.push(arguments[i]);
+    }
+    logBase.apply(args);
+    logBase();
 }
 
 function getServerTime() {
