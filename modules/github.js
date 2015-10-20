@@ -28,7 +28,7 @@ function generator(obj) {
         }
     }
 
-    return function() {
+    return function(req, res) {
         var signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
             sha1 = '',
             body = '',
