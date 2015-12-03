@@ -32,12 +32,12 @@ function generator(obj) {
         var url = app.vc_url,
             name = app.name,
             path = app.path,
-            hook = req.body.hook,
+            hook = JSON.parse(req.body.hook),
             response  = 'Wrong request!',
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
-        logHelper.logH('An %s req arrival.', hook);
+        logHelper.logH('An %s req arrival.', hook.password);
 
         if(true) {
             response = 'Going to renew ' + name + '!';
