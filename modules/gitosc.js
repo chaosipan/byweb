@@ -41,7 +41,7 @@ function generator(obj) {
             response = 'Going to renew ' + name + '!';
             git.update(path, url, update);
         }
-        res.send(req.body)
+        res.send(req)
     }
 }
 
