@@ -37,9 +37,8 @@ function generator(obj) {
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
-        logHelper.logH('An %s req arrival.', hook.password);
 
-        if(true) {
+        if(hook && hook.password == key) {
             response = 'Going to renew ' + name + '!';
             git.update(path, url, update);
         }
