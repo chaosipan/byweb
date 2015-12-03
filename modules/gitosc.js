@@ -14,31 +14,31 @@ function generator(obj) {
     function update() {
         var len = cmdArray.length;
 
-        if(len > 0) {
+        if (len > 0) {
             var cmd = cmdArray.shift();
 
-            exec(cmd, {silent:true}, function(code, output) {
+            exec(cmd, {silent: true}, function (code, output) {
                 logHelper.logH('Exit code:', code);
                 logHelper.logH('%s  output:\n%s', cmd, output);
 
                 update();
             });
-        }else{
+        } else {
             return;
         }
     }
 
-    return function(req, res) {
+    return function (req, res) {
         var url = app.vc_url,
             name = app.name,
             path = app.path,
             hook = JSON.parse(req.body.hook),
-            response  = 'Wrong request!',
+            response = 'Wrong request!',
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
 
-        if(hook && hook.password == key) {
+        if (hook && hook.password == key) {
             response = 'Going to renew ' + name + '!';
             git.update(path, url, update);
         }
