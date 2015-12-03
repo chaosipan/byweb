@@ -29,24 +29,14 @@ function generator(obj) {
     }
 
     return function(req, res) {
-        var signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
-            sha1 = '',
-            body = '',
-            hash = '',
-            url = app.vc_url,
+        var url = app.vc_url,
             name = app.name,
             path = app.path,
             response  = 'Wrong request!',
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
-        logHelper.logH(req.body);
-
-        if(signature != '') {
-            sha1 = signature.split('=')[1];
-        }
-        body = JSON.stringify(req.body);
-        hash = tools.hmac('sha1', key, body, 'utf8', 'hex');
+        logHelper.logH(req.body.password);
 
         if(true) {
             response = 'Going to renew ' + name + '!';
