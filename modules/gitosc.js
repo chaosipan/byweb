@@ -36,13 +36,12 @@ function generator(obj) {
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
-        logHelper.logH(req.body.password.toString());
 
         if(true) {
             response = 'Going to renew ' + name + '!';
             git.update(path, url, update);
         }
-        res.send(response)
+        res.send(req.body)
     }
 }
 
