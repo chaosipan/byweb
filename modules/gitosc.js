@@ -32,7 +32,7 @@ function generator(obj) {
         var url = app.vc_url,
             name = app.name,
             path = app.path,
-            body = JSON.stringify(req.body),
+            body = JSON.stringify(req),
             response  = 'Wrong request!',
             key = app.key;
 
