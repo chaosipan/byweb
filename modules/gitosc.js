@@ -40,7 +40,9 @@ function generator(obj) {
             key = app.key;
 
         logHelper.logH('An %s req arrival.', name);
-        log.d(req.body);
+        for(var key in req) {
+            log.d(req[key]);
+        }
 
         if(signature != '') {
             sha1 = signature.split('=')[1];
