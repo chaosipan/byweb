@@ -5,6 +5,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     github = require('./modules/github'),
+    gitosc = require('./modules/gitosc'),
     config = require('./config'),
     logHelper = require('./modules/logHelper'),
     system = config.system;
@@ -42,6 +43,8 @@ function app_post_adapter(byweb, config) {
         if(app.vc_type == 'git') {
             if(app.vc_server == 'github') {
                 byweb.post(app.watch, github.generator(app));
+            }else if(app.vc_server == 'gitosc') {
+                byweb.post(app.watch, gitosc.generator(app));
             }
         }
     }
