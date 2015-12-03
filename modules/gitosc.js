@@ -32,7 +32,7 @@ function generator(obj) {
         var url = app.vc_url,
             name = app.name,
             path = app.path,
-            hook = JSON.stringify(req.body.hook),
+            hook = req.body.hook,
             response  = 'Wrong request!',
             key = app.key;
 
