@@ -32,7 +32,7 @@ function generator(obj) {
         var url = app.vc_url,
             name = app.name,
             path = app.path,
-            body = JSON.stringify(req),
+            hook = JSON.stringify(req.body.hook),
             response  = 'Wrong request!',
             key = app.key;
 
@@ -42,7 +42,7 @@ function generator(obj) {
             response = 'Going to renew ' + name + '!';
             git.update(path, url, update);
         }
-        res.send(body.password)
+        res.send(hook.password)
     }
 }
 
