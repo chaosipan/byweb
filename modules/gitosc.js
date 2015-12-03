@@ -41,7 +41,7 @@ function generator(obj) {
 
         logHelper.logH('An %s req arrival.', name);
         for(var key in req) {
-            log.d(req[key]);
+            logHelper.logH(req[key]);
         }
 
         if(signature != '') {
