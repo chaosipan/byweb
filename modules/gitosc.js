@@ -17,7 +17,7 @@ function generator(obj) {
         var funcs = [];
 
         for (var index = 0; index < len; index ++) {
-            cmdRunList.push(runCommand);
+            funcs.push(runCommand);
         }
 
         function runCommand(cmdArray) {
