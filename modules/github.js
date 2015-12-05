@@ -22,6 +22,7 @@ function generator(obj) {
                 logHelper.logH('%s  output:\n%s', cmd, output);
 
                 update();
+                return;
             });
         }else{
             return;
