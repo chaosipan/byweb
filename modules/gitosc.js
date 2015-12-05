@@ -4,7 +4,8 @@
 
 var git = require('./git'),
     logHelper = require('./logHelper'),
-    tools = require('./tools');
+    tools = require('./tools'),
+    Q = require('q');
 
 function generator(obj) {
     var app = obj,
@@ -13,21 +14,26 @@ function generator(obj) {
 
     function update() {
         var len = cmdArray.length;
-        console.log(len);
+        var funcs = [];
 
-        if (len > 0) {
+        for (var index = 0; index < len; index ++) {
+            cmdRunList.push(runCommand);
+        }
+
+        function runCommand(cmdArray) {
+            var deferred = Q.defer();
             var cmd = cmdArray.shift();
 
             exec(cmd, {silent: true}, function (code, output) {
                 logHelper.logH('Exit code:', code);
                 logHelper.logH('%s  output:\n%s', cmd, output);
 
-                update();
-                return;
+                deferred.resolve(cmdArray);
             });
-        } else {
-            return;
+            return deferred.promise;
         }
+
+        return funcs.reduce(Q.when, Q(cmdArray));
     }
 
     return function (req, res) {
