@@ -14,26 +14,27 @@ function generator(obj) {
 
     function update() {
         var len = cmdArray.length;
+        var cmds = cmdArray;
         var funcs = [];
 
         for (var index = 0; index < len; index ++) {
             funcs.push(runCommand);
         }
 
-        function runCommand(cmdArray) {
+        function runCommand(cmds) {
             var deferred = Q.defer();
-            var cmd = cmdArray.shift();
+            var cmd = cmds.shift();
 
             exec(cmd, {silent: true}, function (code, output) {
                 logHelper.logH('Exit code:', code);
                 logHelper.logH('%s  output:\n%s', cmd, output);
 
-                deferred.resolve(cmdArray);
+                deferred.resolve(cmds);
             });
             return deferred.promise;
         }
 
-        return funcs.reduce(Q.when, Q(cmdArray));
+        return funcs.reduce(Q.when, Q(cmds));
     }
 
     return function (req, res) {
