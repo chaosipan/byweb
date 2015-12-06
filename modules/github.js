@@ -21,20 +21,20 @@ function generator(obj) {
             funcs.push(runCommand);
         }
 
-        function runCommand(cmds) {
+        function runCommand(index) {
             var deferred = Q.defer();
-            var cmd = cmds.shift();
+            var cmd = cmds[index++];
 
             exec(cmd, {silent: true}, function (code, output) {
                 logHelper.logH('Exit code:', code);
                 logHelper.logH('%s  output:\n%s', cmd, output);
 
-                deferred.resolve(cmds);
+                deferred.resolve(index);
             });
             return deferred.promise;
         }
 
-        return funcs.reduce(Q.when, Q(cmds));
+        return funcs.reduce(Q.when, Q(0));
     }
 
     return function(req, res) {
