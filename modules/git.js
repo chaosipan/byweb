@@ -15,7 +15,7 @@ function pull(pwd, func) {
         logHelper.logH('git pull output:\n', output);
 
         // if already up to date, do not do anything follow.
-        if(output == "Already up-to-date.") {
+        if(output.indexOf("Already up-to-date.") > -1) {
             // do nothing
         } else {
             func();
