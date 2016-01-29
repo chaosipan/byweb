@@ -31,7 +31,7 @@ var server = app.listen(system.port, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    logHelper.logH('byweb app listening at http://%s:%s',host , port);
+    logHelper.logH('byweb app listening at http://%s:%s',host ,port);
 });
 
 //根据配置文件生成监听器
