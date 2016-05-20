@@ -17,10 +17,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-    res.send('It\'s byweb.');
-});
-
 app.get('/test', function(req, res) {
     console.log(req);
     res.send('test function!');
