@@ -1,7 +1,7 @@
 /**
  * Created by Sam on 2015/10/4 0004.
  */
-var express = require('express'),
+let express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     github = require('./modules/github'),
@@ -26,20 +26,19 @@ app.get('/test', function(req, res) {
 
 app = app_post_adapter(app, config);
 
-var server = app.listen(system.port, function () {
-
-    var host = server.address().address;
-    var port = server.address().port;
+let server = app.listen(system.port, function () {
+    let host = server.address().address,
+        port = server.address().port;
 
     logHelper.logH('byweb app listening at http://%s:%s',host ,port);
 });
 
-//根据配置文件生成监听器
+//create listeners from pac
 function app_post_adapter(byweb, config) {
-    var app_list = config.apps;
+    let app_list = config.apps;
 
-    for(var key in app_list) {
-        var app = app_list[key];
+    for(let key in app_list) {
+        let app = app_list[key];
         if(app.vc_type == 'git') {
             if(app.vc_server == 'github') {
                 byweb.post(app.watch, github.generator(app));

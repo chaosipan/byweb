@@ -2,32 +2,38 @@
  * Created by Sam on 2015/10/20.
  */
 
-var git = require('./git'),
+let git = require('./git'),
     logHelper = require('./logHelper'),
     tools = require('./tools'),
     Q = require('q');
 
 function generator(obj) {
-    var app = obj,
+    let app = obj,
         cmdArray = app.commands;
 
 
     function update() {
-        var len = cmdArray.length;
-        var cmds = cmdArray;
-        var funcs = [];
+        let len = cmdArray.length,
+            cmds = cmdArray,
+            funcs = [];
 
-        for (var index = 0; index < len; index ++) {
+        for (let index = 0; index < len; index ++) {
             funcs.push(runCommand);
         }
 
         function runCommand(index) {
-            var deferred = Q.defer();
-            var cmd = cmds[index++];
+            let deferred = Q.defer(),
+                cmd = cmds[index++];
 
             exec(cmd, {silent: true}, function (code, output) {
-                logHelper.logH('Exit code:', code);
-                logHelper.logH('%s  output:\n%s', cmd, output);
+                if(parseInt(code) == 0) {
+                    logHelper.logH('Exit code:', code);
+                    logHelper.logH('%s  output:\n%s', cmd, output);
+                }else {
+                    logHelper.errorH('Exit code:', code);
+                    logHelper.errorH('%s  output:\n%s', cmd, output);
+                }
+
 
                 deferred.resolve(index);
             });
@@ -38,7 +44,7 @@ function generator(obj) {
     }
 
     return function(req, res) {
-        var signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
+        let signature = req.headers['x-hub-signature'] ? req.headers['x-hub-signature'] : '',
             sha1 = '',
             body = '',
             hash = '',

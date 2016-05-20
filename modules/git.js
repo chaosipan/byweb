@@ -1,7 +1,7 @@
 /**
  * Created by Sam on 2015/10/4 0004.
  */
-var logHelper = require('./logHelper'),
+let logHelper = require('./logHelper'),
     path = require('path');
 
 require('shelljs/global');
@@ -11,8 +11,13 @@ function pull(pwd, func) {
     exec('git pull', {silent:true}, pull_callback);
 
     function pull_callback(code, output) {
-        logHelper.logH('Exit code:', code);
-        logHelper.logH('git pull output:\n', output);
+        if(parseInt(code) == 0) {
+            logHelper.logH('Exit code:', code);
+            logHelper.logH('git pull output:\n', output);
+        }else {
+            logHelper.errorH('Exit code:', code);
+            logHelper.errorH('git pull output:\n', output);
+        }
 
         // if already up to date, do not do anything follow.
         if(output.indexOf("Already up-to-date.") > -1) {
@@ -28,8 +33,14 @@ function clone(pwd, url, func) {
     exec('git clone ' + url, {silent:true}, clone_callback);
 
     function clone_callback(code, output) {
-        logHelper.logH('Exit code:', code);
-        logHelper.logH('git clone output:\n', output);
+        if(parseInt(code) == 0) {
+            logHelper.logH('Exit code:', code);
+            logHelper.logH('git clone output:\n', output);
+        } else{
+            logHelper.errorH('Exit code:', code);
+            logHelper.errorH('git clone output:\n', output);
+        }
+
 
         func();
     }
@@ -39,7 +50,7 @@ function update(pwd, url, func) {
     if(test('-e', pwd)) {
         pull(pwd, func);
     }else {
-        var p = path.dirname(pwd);
+        let p = path.dirname(pwd);
         if(test('-e', p)) {
             clone(p, url, func);
         }else {
