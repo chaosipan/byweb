@@ -6,6 +6,20 @@ module.exports = {
     system: {
         port: 24372
     },
+    session: {
+        cookie: {
+            maxAge: 1000*60*2
+        },
+        secret: '6969',
+        saveUninitialized: false,
+        resave: false
+    },
+    mysql: {
+        host     : 'localhost',
+        user     : 'me',
+        password : 'secret',
+        database : 'my_db'
+    },
     apps: [
         {
             name: 'app_name',
