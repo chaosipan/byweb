@@ -5,7 +5,8 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        index: './src/index.jsx'
+        index: './src/index.jsx',
+        login: './src/login.jsx'
     },
     output: {
         path: path.join(__dirname, '/public/dist'),
