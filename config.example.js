@@ -4,6 +4,7 @@
 
 module.exports = {
     system: {
+        secret: '6969',
         port: 24372
     },
     session: {
