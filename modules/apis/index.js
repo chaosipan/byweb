@@ -28,7 +28,10 @@ module.exports = function(app, AppModel) {
                     if(req.session.user) {
                         next();
                     }else {
-                        res.send('Please login first!');
+                        res.json({
+                            code: 500,
+                            msg: 'without auth'
+                        });
                     }
                 })
             }

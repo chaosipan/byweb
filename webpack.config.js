@@ -23,5 +23,8 @@ module.exports = {
             test: /\.jsx$/,
             loader: 'babel-loader!jsx-loader?harmony'
         }]
+    },
+    externals: {
+        "jquery": "jQuery"
     }
-}
+};

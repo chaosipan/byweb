@@ -3,9 +3,9 @@
  */
 let React = require('react'),
     ReactDom = require('react-dom'),
-    $ = require('jquery');
+    LoginForm = require('./login/LoginForm');
 
 ReactDom.render(
-    <p>Hello, world!!</p>,
-    document.getElementById('example')
+    <LoginForm />,
+    document.getElementById('loginForm')
 );

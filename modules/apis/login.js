@@ -10,9 +10,8 @@ module.exports = function(app, data) {
         User = AppModel.extend({
             tableName: 'user'
         }),
-        user = new User();
-
-    return apis = [
+        user = new User(),
+        apis = [
         {
             auth: 0,
             url: config.getUrl('login'),
@@ -45,4 +44,6 @@ module.exports = function(app, data) {
             }
         }
     ];
+
+    return apis;
 };

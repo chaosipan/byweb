@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "webpack": "webpack --watch"
+    "webpack": "webpack -d --watch"
   },
   "keywords": [
     "byweb",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
-    "babel-loader": "^6.2.4"
+    "babel-loader": "^6.2.4",
+    "webpack": "^1.13.1"
   }
 }

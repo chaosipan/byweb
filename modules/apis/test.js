@@ -2,8 +2,8 @@
  * Created by lizhe on 2016/5/22.
  */
 module.exports = function(app, data) {
-    let config = data.config;
-    return apis = [
+    let config = data.config,
+        apis = [
         {
             auth: 1,
             url: config.getUrl('test'),
@@ -13,4 +13,6 @@ module.exports = function(app, data) {
             }
         }
     ];
+
+    return apis;
 };
