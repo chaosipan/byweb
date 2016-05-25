@@ -26,7 +26,7 @@ module.exports = {
             vc_server: 'gitosc',
             vc_url: 'https://git.oschina.net/chaosi/Trash.git',
             watch: '/git/trash',
-            path: '/home/chaosi/webhook/trash',
+            path: '/home/chaosi/webhook/mydb',
             commands: [
                
             ]
